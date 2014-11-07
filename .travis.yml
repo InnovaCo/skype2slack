@@ -6,6 +6,6 @@ jdk:
 script: "sbt ++2.11.3 test assembly"
 env:
   global:
-    secure: "iL3oVEL0FFYQz02pbdXdw0dlm4rOLDiargTu+t3Cq0IV9sUuOZNHYJlzSV22FfRpsMGR0sc6G/EzaMoKJmFmIqlIbM1IUhrRAe0tvvOm/WNBuzQs5thXBEvcY1v9XY5AKERCqBcIT95UqAGLzkfkWCRYDuuBlqi9oL0utL/ENEg="
+    secure: "SeApblifZL4B98uTaDKKsuGSaTjiS55jfbWp3HENFWQGc9GPh9J9XPeMqA7DJkkCQDXoGckjOJLT+DQEtvsyj+9B4usoY7EZUGMjMQPou91YCUTXZwiaVThuluPjTK9JzGVOfiU4OCy7vALkA4dU/1eTzLxHdDso1GbtQKv+10g="
 after_success:
     "curl -k -m 90 -include -F upload=@./target/scala-2.11/skype-bot-assembly-0.1.1.jar --user $TRAVIS_USER:$TRAVIS_PASS https://skypebot.maqdev.com/upload"
