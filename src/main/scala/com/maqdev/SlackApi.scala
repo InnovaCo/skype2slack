@@ -29,6 +29,10 @@ object SlackApi {
     val strippedMessage = """<[^< ][^>]+?>""".r replaceAllIn (prefixedQuotes, "")
     val sanitizedMessage = htmlEntities.foldLeft(strippedMessage) { case (result, (chr, ent)) ⇒ result replaceAllLiterally (ent, chr) }
 
+    // I'm so sorry but I have to do this hardcode here. Sorry again :(
+
+    val mentionedMessage = """(?iu)\bэд(уард|ик)?\b""".r replaceAllIn (sanitizedMessage, "Эд (@gems)")
+
     slackRequest("chat.postMessage", Map(
       "channel" → slackChannelId,
       "username" → s"${m.authorName} @ Skype",
@@ -37,7 +41,7 @@ object SlackApi {
       "link_names" → s"1",
       "unfurl_links" → s"true",
       "unfurl_media" → s"true",
-      "text" → sanitizedMessage
+      "text" → mentionedMessage
     ))
   }
 
