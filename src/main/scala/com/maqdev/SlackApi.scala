@@ -31,7 +31,7 @@ object SlackApi {
 
     // I'm so sorry but I have to do this hardcode here. Sorry again :(
 
-    val mentionedMessage = """(?iu)\bэд(уард|ик)?\b""".r replaceAllIn (sanitizedMessage, "Эд (@gems)")
+    val mentionedMessage = """(?iu)\bэд.*?\b""".r replaceAllIn (sanitizedMessage, "Эд (@gems)")
 
     slackRequest("chat.postMessage", Map(
       "channel" → slackChannelId,
