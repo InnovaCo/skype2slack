@@ -3,9 +3,10 @@ scala:
 - 2.11.3
 jdk:
 - oraclejdk7
-script: "sbt ++2.11.3 test assembly"
+script: sbt ++2.11.3 test assembly
 env:
   global:
-    secure: "vlIiyXGRjLu8rkgdTaxRT4XJW16kp9vuZZDo9HZiJL9OLBVCJNL8OJXp80vPI2GTLlis/amk+jXrjHeHnNrxWKw9g9Go+7WVQo+IbCW9PcmbsfI7ks4YjSFV8c47ZbokE+k4uuzt2BAMS9CwxUP8rW3p7usQnvgh0/85AGp9fNg="
-after_success:
-    "curl -k -m 90 -include -F upload=@./target/scala-2.11/skype-bot-assembly-0.1.1.jar --user $TRAVIS_USER:$TRAVIS_PASS https://bot.maqdev.com/upload"
+  - secure: AQqQzAN8MNNGjOjDD8goKAtAA4XNq6CcQnuQbWS+QoGd5EFY5U7dkyBSHAEcckaaIjA0qQj0BXnFnM/6W9cJ6I+ceSo+caoOmWFdoOtolX9UH/7emVuvCJYOK6rZCKjurUFAKWi1cbP2u4yeuaQnIPAwRVEXTNED1udUlgUkF84=
+  - secure: X0M8zrK6q4SA66eke1oaSjQRlxOuWaXkCadL+4zhrFIHmt3YHZlUnrdHpb2U8fUyTX6rAZolQ+2dsxjF7/3RqCUfsztlnPKxlNZKqH4CRhQ3/sZPNDWzAErUVFj1qdQFMKhIup7zBOukWxFCN02dZwXRIvXaNoOlVU4NYsIs+Ms=
+after_success: curl -k -m 90 -include -F upload=@./target/scala-2.11/skype-bot-assembly-0.1.1.jar
+  --user $UP_USER:$UP_PWD https://bot.maqdev.com/upload
