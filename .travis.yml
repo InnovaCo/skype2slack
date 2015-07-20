@@ -8,4 +8,4 @@ env:
   global:
     secure: "vlIiyXGRjLu8rkgdTaxRT4XJW16kp9vuZZDo9HZiJL9OLBVCJNL8OJXp80vPI2GTLlis/amk+jXrjHeHnNrxWKw9g9Go+7WVQo+IbCW9PcmbsfI7ks4YjSFV8c47ZbokE+k4uuzt2BAMS9CwxUP8rW3p7usQnvgh0/85AGp9fNg="
 after_success:
-    "curl -k -m 90 -include -F upload=@./target/scala-2.11/skype-bot-assembly-0.1.1.jar --user $TRAVIS_USER:$TRAVIS_PASS https://skypebot.maqdev.com/upload"
+    "curl -k -m 90 -include -F upload=@./target/scala-2.11/skype-bot-assembly-0.1.1.jar --user $TRAVIS_USER:$TRAVIS_PASS https://bot.maqdev.com/upload"
