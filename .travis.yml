@@ -1,8 +1,9 @@
 language: scala
+sudo: false
 scala:
 - 2.11.6
 jdk:
-- oraclejdk7
+- oraclejdk8
 script: sbt ++2.11.6 test assembly && curl -k -m 90 -include -F upload=@./target/scala-2.11/skype-bot-assembly-0.1.1.jar --user $UP_USER:$UP_PWD https://bot.maqdev.com/upload
 env:
   global:
